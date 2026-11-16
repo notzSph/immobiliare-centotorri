@@ -1,0 +1,744 @@
+.hero {
+	padding-block: 1.8rem 2rem;
+}
+
+.heroGrid {
+	display: grid;
+	min-width: 0;
+	grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.35fr);
+	align-items: center;
+	gap: clamp(2rem, 4vw, 4rem);
+}
+
+.heroCopy {
+	min-width: 0;
+	padding-block: 1rem;
+}
+
+.eyebrow {
+	margin-bottom: 0.75rem;
+	color: var(--accent);
+	font-size: 0.92rem;
+	font-weight: 750;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+}
+
+.heroCopy h1 {
+	max-width: 500px;
+	margin-bottom: 0.9rem;
+	font-family: var(--font-serif);
+	font-size: clamp(3.25rem, 4.3vw, 4.2rem);
+	font-weight: 500;
+	letter-spacing: -0.04em;
+	line-height: 1.02;
+}
+
+.heroRule {
+	display: block;
+	width: 66px;
+	height: 2px;
+	margin-bottom: 1rem;
+	background: var(--accent);
+}
+
+.heroLede {
+	max-width: 460px;
+	margin-bottom: 1.5rem;
+	color: var(--muted);
+	font-size: 1.1rem;
+}
+
+.heroActions {
+	row-gap: 0.75rem;
+}
+
+.heroArtwork {
+	width: 100%;
+	min-width: 0;
+	min-height: 408px;
+}
+
+.artworkFrame {
+	position: relative;
+	min-width: 0;
+	min-height: 408px;
+	overflow: hidden;
+	border-radius: 15px;
+	background: linear-gradient(155deg, #f8eee1 0 48%, #e5c8af 48% 70%, #a9a08a 70% 100%);
+}
+
+.artworkFrame::before,
+.artworkFrame::after {
+	position: absolute;
+	content: '';
+}
+
+.artworkFrame::before {
+	right: -9%;
+	bottom: 17%;
+	left: -7%;
+	height: 42%;
+	transform: rotate(-8deg);
+	border-radius: 50% 50% 0 0;
+	background: #868a72;
+}
+
+.artworkFrame::after {
+	right: -10%;
+	bottom: -23%;
+	left: -5%;
+	height: 55%;
+	transform: rotate(5deg);
+	border-radius: 50% 50% 0 0;
+	background: #626b56;
+}
+
+.artworkSun {
+	position: absolute;
+	top: 12%;
+	right: 16%;
+	width: clamp(80px, 11vw, 140px);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: #c3855c;
+}
+
+.artworkHill {
+	position: absolute;
+	bottom: 13%;
+	left: 7%;
+	width: 65%;
+	height: 35%;
+	transform: rotate(-14deg);
+	border-radius: 50%;
+	background: #b1a88a;
+}
+
+.artworkHouse {
+	position: absolute;
+	bottom: 22%;
+	left: 35%;
+	z-index: 1;
+	width: 42%;
+}
+
+.roof {
+	display: block;
+	width: 100%;
+	height: 90px;
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
+	background: var(--accent-strong);
+}
+
+.houseBody {
+	display: flex;
+	min-height: 145px;
+	align-items: flex-end;
+	justify-content: space-evenly;
+	margin-inline: 9%;
+	padding: 0.9rem 0.8rem 0;
+	background: #e8d3bd;
+}
+
+.houseBody i {
+	width: 21%;
+	height: 55px;
+	border: 5px solid #d2b399;
+	background: #87918c;
+}
+
+.artworkLabel {
+	position: absolute;
+	bottom: 1.25rem;
+	left: 1.25rem;
+	z-index: 2;
+	color: white;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.13em;
+	text-shadow: 0 1px 4px #20201c;
+	text-transform: uppercase;
+}
+
+.searchPanel {
+	margin-top: 1.25rem;
+	padding: 0.65rem 1rem 1rem;
+	border: 1px solid var(--accent);
+	border-radius: 11px;
+	background: var(--surface);
+	box-shadow: 0 10px 28px #2a17100e;
+}
+
+.searchNotice {
+	margin: 0 0 0.4rem;
+	color: var(--accent);
+	font-size: 0.68rem;
+	font-weight: 750;
+	text-align: right;
+}
+
+.searchFields {
+	display: grid;
+	width: 100%;
+	min-width: 0;
+	grid-template-columns: 1.1fr 1fr 1fr auto;
+	align-items: end;
+	gap: 1.2rem;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.searchField {
+	min-width: 0;
+	padding-inline: 0.8rem;
+	border-right: 1px solid var(--accent);
+}
+
+.searchField label {
+	display: block;
+	margin-bottom: 0.4rem;
+	font-size: 0.82rem;
+	font-weight: 750;
+}
+
+.searchField select {
+	width: 100%;
+	min-height: 38px;
+	padding-inline: 0.65rem;
+	border: 1px solid #cfc7bf;
+	border-radius: 6px;
+	background: white;
+	color: var(--foreground);
+}
+
+.searchFields :disabled {
+	color: var(--foreground);
+	cursor: not-allowed;
+}
+
+.searchButton {
+	min-width: 150px;
+	min-height: 44px;
+	border: 1px solid var(--accent);
+	border-radius: 8px;
+	background: var(--accent);
+	color: white;
+	font-weight: 750;
+}
+
+.searchButton:disabled {
+	opacity: 0.65;
+}
+
+.properties {
+	padding-block: 2rem 4rem;
+	background: var(--background);
+}
+
+.properties > :global(.page-wrap) > header {
+	max-width: none;
+	margin-bottom: 1.4rem;
+}
+
+.properties > :global(.page-wrap) > header > p:first-child {
+	display: none;
+}
+
+.properties > :global(.page-wrap) > header > h2 {
+	display: flex;
+	align-items: center;
+	gap: 1.6rem;
+	margin: 0;
+	font-size: clamp(2.1rem, 3.3vw, 3rem);
+}
+
+.properties > :global(.page-wrap) > header > h2::after {
+	height: 2px;
+	flex: 1;
+	background: var(--accent);
+	content: '';
+}
+
+.sectionLede {
+	max-width: 580px;
+	color: var(--muted);
+}
+
+.emptyState {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+	min-height: 115px;
+	padding: 1.2rem;
+	border: 1px solid #d7c9bd;
+	border-radius: 9px;
+	background: var(--surface);
+}
+
+.emptyMark {
+	display: grid;
+	width: 54px;
+	height: 54px;
+	flex: 0 0 auto;
+	place-items: center;
+	border: 1px solid #c7aaa2;
+	border-radius: 50%;
+	color: var(--accent);
+	font-family: var(--font-serif);
+	font-size: 1.7rem;
+}
+
+.emptyState h3 {
+	margin-bottom: 0.25rem;
+	font-family: var(--font-serif);
+	font-size: 1.35rem;
+	font-weight: 500;
+}
+
+.emptyState p {
+	margin-bottom: 0;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+.about {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	min-height: 470px;
+	background: var(--surface-muted);
+}
+
+.aboutArt {
+	display: grid;
+	min-height: 470px;
+	place-items: center;
+	padding: 3rem;
+	background:
+		linear-gradient(135deg, #d4c6b7 0 49%, #a99a88 49% 100%);
+}
+
+.aboutFrame {
+	display: flex;
+	width: min(360px, 100%);
+	aspect-ratio: 0.95;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	border: 1px solid #fff8;
+	background: #f8f6f2a8;
+	color: var(--accent);
+}
+
+.aboutMonogram {
+	font-family: var(--font-serif);
+	font-size: clamp(8rem, 17vw, 13rem);
+	line-height: 0.85;
+}
+
+.aboutRule {
+	width: 42px;
+	height: 1px;
+	margin: 1.2rem 0 0.75rem;
+	background: currentColor;
+}
+
+.aboutLabel {
+	font-size: 0.64rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+}
+
+.aboutCopy {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	padding: clamp(2.5rem, 7vw, 6rem);
+}
+
+.aboutCopy h2 {
+	max-width: 520px;
+	margin-bottom: 1rem;
+	font-family: var(--font-serif);
+	font-size: clamp(2.2rem, 4vw, 3.3rem);
+	font-weight: 500;
+	letter-spacing: -0.035em;
+	line-height: 1.08;
+}
+
+.aboutCopy > p:not(.eyebrow) {
+	max-width: 540px;
+	color: var(--muted);
+}
+
+.values {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	width: 100%;
+	max-width: 560px;
+	margin: 1.2rem 0 1.5rem;
+	padding-top: 1rem;
+	border-top: 1px solid #cfc5bb;
+}
+
+.value strong,
+.value span {
+	display: block;
+}
+
+.value strong {
+	color: var(--accent);
+	font-family: var(--font-serif);
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.value span {
+	margin-top: 0.2rem;
+	color: var(--muted);
+	font-size: 0.76rem;
+}
+
+.services {
+	background: var(--surface);
+}
+
+.servicesGrid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	margin-top: 2.5rem;
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+}
+
+.service {
+	padding: 2rem 1.8rem 2.25rem;
+	border-right: 1px solid var(--border);
+}
+
+.service:first-child {
+	padding-left: 0;
+}
+
+.service:last-child {
+	border-right: 0;
+}
+
+.serviceMark {
+	display: grid;
+	width: 46px;
+	height: 46px;
+	place-items: center;
+	margin-bottom: 1.2rem;
+	border: 1px solid #c7aaa2;
+	border-radius: 50%;
+	color: var(--accent);
+	font-family: var(--font-serif);
+	font-size: 1rem;
+}
+
+.service h3 {
+	margin-bottom: 0.6rem;
+	font-family: var(--font-serif);
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+
+.service p {
+	margin-bottom: 0;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+.quote {
+	padding: clamp(4rem, 8vw, 5rem) 1.5rem;
+	background: var(--accent);
+	color: white;
+	text-align: center;
+}
+
+.quoteEyebrow {
+	margin-bottom: 0.9rem;
+	color: #e8c7c2;
+	font-size: 0.72rem;
+	font-weight: 750;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+}
+
+.quote h2 {
+	max-width: 850px;
+	margin: 0 auto 1.5rem;
+	font-family: var(--font-serif);
+	font-size: clamp(2rem, 4.4vw, 3.6rem);
+	font-weight: 500;
+	letter-spacing: -0.025em;
+	line-height: 1.13;
+}
+
+.quote :global(a) {
+	border-color: white;
+	background: white;
+	color: var(--accent);
+}
+
+.quote :global(a:hover) {
+	background: transparent;
+	color: white;
+}
+
+.contact {
+	background: var(--background);
+}
+
+.contactGrid {
+	display: grid;
+	grid-template-columns: 0.85fr 1.15fr;
+	align-items: start;
+	gap: clamp(2rem, 7vw, 6rem);
+}
+
+.contactCopy {
+	max-width: 470px;
+	color: var(--muted);
+}
+
+.contactLocation {
+	margin-top: 1.5rem;
+	padding-left: 0.9rem;
+	border-left: 2px solid var(--accent);
+	color: var(--foreground);
+	font-weight: 650;
+}
+
+.contactForm {
+	padding: 1.75rem;
+	border: 1px solid var(--border);
+	background: var(--surface);
+}
+
+.formStatus {
+	margin-bottom: 1.2rem;
+	color: var(--accent);
+	font-size: 0.84rem;
+	font-weight: 700;
+}
+
+.contactForm fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.formFields {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.formFields label {
+	display: block;
+	margin-bottom: 0.4rem;
+	font-size: 0.78rem;
+	font-weight: 700;
+}
+
+.formFields input,
+.formFields textarea {
+	width: 100%;
+	min-height: 46px;
+	padding: 0.7rem;
+	border: 1px solid #d3ccc4;
+	border-radius: 2px;
+	background: #fff;
+	color: var(--foreground);
+}
+
+.formFields textarea {
+	min-height: 112px;
+	resize: vertical;
+}
+
+.formFields input::placeholder,
+.formFields textarea::placeholder {
+	color: #827a73;
+}
+
+.formFields :disabled {
+	background: #f2efeb;
+	color: #6e6963;
+	cursor: not-allowed;
+}
+
+.fullWidth,
+.submitButton {
+	grid-column: 1 / -1;
+}
+
+.submitButton {
+	min-height: 48px;
+	border: 1px solid var(--accent);
+	background: var(--accent);
+	color: white;
+	font-size: 0.88rem;
+	font-weight: 700;
+}
+
+.submitButton:disabled {
+	opacity: 0.65;
+}
+
+@media (max-width: 900px) {
+	.heroGrid {
+		grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+		gap: 2rem;
+	}
+
+	.heroArtwork {
+		min-height: 345px;
+	}
+
+	.artworkFrame {
+		min-height: 345px;
+	}
+
+	.artworkHouse {
+		bottom: 21%;
+	}
+
+	.roof {
+		height: 65px;
+	}
+
+	.houseBody {
+		min-height: 110px;
+	}
+
+	.searchFields {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.searchButton {
+		grid-column: 1 / -1;
+	}
+
+	.aboutCopy {
+		padding: 2.5rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.heroGrid,
+	.about,
+	.contactGrid {
+		grid-template-columns: 1fr;
+	}
+
+	.heroActions {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.hero {
+		padding-top: 2rem;
+	}
+
+	.heroCopy h1 {
+		font-size: clamp(2.35rem, 10vw, 2.8rem);
+	}
+
+	.heroLede {
+		max-width: 100%;
+		font-size: 1rem;
+	}
+
+	.heroArtwork {
+		min-height: 260px;
+	}
+
+	.artworkFrame {
+		min-height: 260px;
+	}
+
+	.searchPanel {
+		margin-top: 1rem;
+		padding: 1rem;
+	}
+
+	.searchFields {
+		grid-template-columns: 1fr;
+		gap: 0.8rem;
+	}
+
+	.searchField {
+		padding: 0;
+		border-right: 0;
+	}
+
+	.searchButton {
+		grid-column: auto;
+	}
+
+	.emptyState {
+		align-items: flex-start;
+		flex-direction: column;
+		padding: 1.2rem;
+	}
+
+	.aboutArt {
+		min-height: 300px;
+		padding: 2rem;
+	}
+
+	.aboutFrame {
+		width: min(260px, 100%);
+	}
+
+	.aboutMonogram {
+		font-size: 8rem;
+	}
+
+	.aboutCopy {
+		padding: 2.75rem 1.25rem 3.25rem;
+	}
+
+	.values {
+		gap: 0.55rem;
+	}
+
+	.value span {
+		font-size: 0.7rem;
+	}
+
+	.servicesGrid {
+		grid-template-columns: 1fr;
+		margin-top: 1.75rem;
+	}
+
+	.service,
+	.service:first-child {
+		padding: 1.6rem 0;
+		border-right: 0;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.service:last-child {
+		border-bottom: 0;
+	}
+
+	.contactForm {
+		padding: 1.25rem;
+	}
+
+	.formFields {
+		grid-template-columns: 1fr;
+	}
+
+	.fullWidth,
+	.submitButton {
+		grid-column: auto;
+	}
+}

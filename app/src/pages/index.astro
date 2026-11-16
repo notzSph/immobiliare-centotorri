@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GenericButton from '../lib/ui/genericButton/GenericButton.astro';
+import GenericSection from '../lib/ui/genericSection/GenericSection.astro';
+import styles from './index.module.scss';
+
+const services = [
+	{
+		number: '01',
+		title: 'Compravendita',
+		copy: 'Un punto di riferimento per orientarti nell’acquisto o nella vendita di un immobile.',
+	},
+	{
+		number: '02',
+		title: 'Locazione',
+		copy: 'Un supporto per valutare le opportunità di affitto in base alle tue esigenze.',
+	},
+	{
+		number: '03',
+		title: 'Consulenza immobiliare',
+		copy: 'Un confronto per chiarire obiettivi, possibilità e prossimi passi.',
+	},
+];
+
+const values = [
+	{ title: 'Ascolto', copy: 'Partiamo dalle tue esigenze.' },
+	{ title: 'Cura', copy: 'Ogni scelta merita attenzione.' },
+	{ title: 'Territorio', copy: 'Asti e dintorni.' },
+];
+
+const searchOptions = [
+	{
+		id: 'search-area',
+		label: 'Dove',
+		options: ['Asti e dintorni'],
+	},
+	{
+		id: 'search-type',
+		label: 'Tipologia',
+		options: ['Tutte le tipologie'],
+	},
+	{
+		id: 'search-transaction',
+		label: 'Contratto',
+		options: ['Vendita o affitto'],
+	},
+];
+---
+
+<BaseLayout
+	title="Immobiliare Centotorri | La casa giusta, nel posto giusto"
+	description="Immobiliare Centotorri. Scopri i servizi immobiliari per Asti e dintorni."
+	canonicalPath="/"
+>
+	<section id="home" class={styles.hero} aria-labelledby="hero-title">
+		<div class="page-wrap">
+			<div class={styles.heroGrid}>
+				<div class={styles.heroCopy}>
+					<p class={styles.eyebrow}>Immobiliare · Asti</p>
+					<h1 id="hero-title">La casa giusta, nel posto giusto.</h1>
+					<span class={styles.heroRule} aria-hidden="true"></span>
+					<p class={styles.heroLede}>
+						Ti accompagniamo nella ricerca o nella vendita di casa ad Asti e dintorni,
+						partendo da ciò che conta per te.
+					</p>
+					<div class={`f-row f-wrap a-center g-3 ${styles.heroActions}`}>
+						<GenericButton href="#immobili">
+							Scopri gli immobili <span aria-hidden="true">→</span>
+						</GenericButton>
+					</div>
+				</div>
+				<div class={styles.heroArtwork} aria-hidden="true">
+					<div class={styles.artworkFrame}>
+						<div class={styles.artworkSun}></div>
+						<div class={styles.artworkHill}></div>
+						<div class={styles.artworkHouse}>
+							<span class={styles.roof}></span>
+							<span class={styles.houseBody}>
+								<i></i><i></i><i></i>
+							</span>
+						</div>
+						<span class={styles.artworkLabel}>Asti e dintorni</span>
+					</div>
+				</div>
+			</div>
+			<div class={styles.searchPanel} aria-describedby="search-status">
+				<p id="search-status" class={styles.searchNotice}>
+					Ricerca online non ancora attiva.
+				</p>
+				<fieldset class={styles.searchFields} disabled aria-label="Criteri di ricerca immobili">
+					{searchOptions.map(({ id, label, options }) => (
+						<div class={styles.searchField}>
+							<label for={id}>{label}</label>
+							<select id={id} name={id}>
+								{options.map((option) => <option>{option}</option>)}
+							</select>
+						</div>
+					))}
+					<button class={styles.searchButton} type="button">Cerca</button>
+				</fieldset>
+			</div>
+		</div>
+	</section>
+
+	<GenericSection id="immobili" eyebrow="Da scoprire" title="Le nostre proposte" class={styles.properties}>
+		<p slot="intro" class={`section-lede ${styles.sectionLede}`}>
+			Le proposte saranno pubblicate qui quando saranno disponibili informazioni verificate.
+		</p>
+		<div class={styles.emptyState} role="status">
+			<span class={styles.emptyMark} aria-hidden="true">⌂</span>
+			<div>
+				<h3>Nessun immobile pubblicato al momento</h3>
+				<p>Se stai cercando casa, puoi raccontarci le tue esigenze.</p>
+			</div>
+			<GenericButton href="#contatti" variant="text">
+				Contattaci <span aria-hidden="true">→</span>
+			</GenericButton>
+		</div>
+	</GenericSection>
+
+	<section id="agenzia" class={styles.about} aria-labelledby="about-title">
+		<div class={styles.aboutArt} aria-hidden="true">
+			<div class={styles.aboutFrame}>
+				<span class={styles.aboutMonogram}>C</span>
+				<span class={styles.aboutRule}></span>
+				<span class={styles.aboutLabel}>Immobiliare · Asti</span>
+			</div>
+		</div>
+		<div class={styles.aboutCopy}>
+			<p class={styles.eyebrow}>Immobiliare Centotorri</p>
+			<h2 id="about-title">Il territorio, visto da vicino.</h2>
+			<p>
+				Una casa è molto più di un indirizzo. Confrontiamoci su ciò che cerchi, sui tuoi
+				tempi e sulle possibilità da valutare.
+			</p>
+			<div class={styles.values}>
+				{values.map(({ title, copy }) => (
+					<div class={styles.value}>
+						<strong>{title}</strong>
+						<span>{copy}</span>
+					</div>
+				))}
+			</div>
+			<GenericButton href="#contatti" variant="text">
+				Parliamone <span aria-hidden="true">→</span>
+			</GenericButton>
+		</div>
+	</section>
+
+	<GenericSection id="servizi" eyebrow="Come possiamo aiutarti" title="Un supporto, passo dopo passo." class={styles.services}>
+		<p slot="intro" class={`section-lede ${styles.sectionLede}`}>
+			Un confronto per orientarti nelle decisioni legate alla casa.
+		</p>
+		<div class={styles.servicesGrid}>
+			{services.map(({ number, title, copy }) => (
+				<article class={styles.service}>
+					<span class={styles.serviceMark} aria-hidden="true">{number}</span>
+					<h3>{title}</h3>
+					<p>{copy}</p>
+				</article>
+			))}
+		</div>
+	</GenericSection>
+
+	<section class={styles.quote} aria-labelledby="quote-title">
+		<p class={styles.quoteEyebrow}>La prossima storia può cominciare qui</p>
+		<h2 id="quote-title">“Cerco casa” è un ottimo punto di partenza.</h2>
+		<GenericButton href="#contatti" variant="outline">
+			Raccontaci cosa cerchi <span aria-hidden="true">→</span>
+		</GenericButton>
+	</section>
+
+	<GenericSection id="contatti" eyebrow="Siamo qui per te" title="Parliamo del tuo prossimo passo." class={styles.contact}>
+		<p slot="intro" class={`section-lede ${styles.sectionLede}`}>
+			Recapiti e invio delle richieste saranno attivati quando l’agenzia avrà confermato i propri dati.
+		</p>
+		<div class={styles.contactGrid}>
+			<div class={styles.contactCopy}>
+				<p>
+					Vuoi ricevere informazioni o raccontarci cosa stai cercando? In questa fase il
+					modulo non è ancora configurato e non invia messaggi.
+				</p>
+				<p class={styles.contactLocation}>Asti e dintorni</p>
+			</div>
+			<form class={styles.contactForm} aria-describedby="form-status">
+				<p id="form-status" class={styles.formStatus}>
+					Modulo non configurato. I campi sono disattivati e non raccolgono dati.
+				</p>
+				<fieldset disabled>
+					<div class={styles.formFields}>
+						<div>
+							<label for="name">Nome</label>
+							<input id="name" name="nome" autocomplete="name" placeholder="Il tuo nome" />
+						</div>
+						<div>
+							<label for="email">Email</label>
+							<input id="email" name="email" type="email" autocomplete="email" placeholder="nome@esempio.it" />
+						</div>
+						<div class={styles.fullWidth}>
+							<label for="message">Il tuo messaggio</label>
+							<textarea id="message" name="messaggio" placeholder="Come possiamo aiutarti?"></textarea>
+						</div>
+						<button class={styles.submitButton} type="submit">Invia richiesta <span aria-hidden="true">→</span></button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</GenericSection>
+</BaseLayout>
