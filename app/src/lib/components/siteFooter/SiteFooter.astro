@@ -1,0 +1,39 @@
+---
+import styles from './siteFooter.module.scss';
+
+const navigation = [
+	{ href: '#home', label: 'Home' },
+	{ href: '#servizi', label: 'Servizi' },
+	{ href: '#immobili', label: 'Immobili' },
+	{ href: '#contatti', label: 'Contatti' },
+];
+---
+
+<footer class={styles.siteFooter}>
+	<div class="page-wrap">
+		<div class={styles.footerGrid}>
+			<div class={styles.footerBrand}>
+				<p class={styles.brandName}>Centotorri</p>
+				<p>Immobiliare · Asti</p>
+				<p class={styles.footerNote}>Recapiti e informazioni dell’agenzia da verificare prima della pubblicazione.</p>
+			</div>
+			<div>
+				<h2 class={styles.footerHeading}>Navigazione</h2>
+				<ul>
+					{navigation.map(({ href, label }) => <li><a href={href}>{label}</a></li>)}
+				</ul>
+			</div>
+			<div>
+				<h2 class={styles.footerHeading}>Contatti</h2>
+				<ul>
+					<li><a href="#contatti">Modulo non configurato</a></li>
+					<li>Asti e dintorni</li>
+				</ul>
+			</div>
+		</div>
+		<div class={styles.copyright}>
+			<span>© {new Date().getFullYear()} Immobiliare Centotorri</span>
+			<span>Informazioni legali da completare prima della pubblicazione</span>
+		</div>
+	</div>
+</footer>

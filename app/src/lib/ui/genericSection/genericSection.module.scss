@@ -1,0 +1,31 @@
+.genericSection {
+	padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.sectionHeading {
+	max-width: 760px;
+	margin-bottom: 2rem;
+}
+
+.sectionHeading h2 {
+	margin-bottom: 0.75rem;
+	font-family: var(--font-serif);
+	font-size: clamp(2.2rem, 4vw, 3.3rem);
+	font-weight: 500;
+	letter-spacing: -0.035em;
+	line-height: 1.08;
+}
+
+.eyebrow {
+	margin-bottom: 0.75rem;
+	color: var(--accent);
+	font-size: 0.72rem;
+	font-weight: 750;
+	letter-spacing: 0.17em;
+	text-transform: uppercase;
+}
+
+.sectionContent :global(.section-lede) {
+	max-width: 580px;
+	color: var(--muted);
+}

@@ -1,0 +1,48 @@
+.button {
+	display: inline-flex;
+	min-height: 48px;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	padding: 0.7rem 1.35rem;
+	border: 1px solid var(--accent);
+	border-radius: 8px;
+	font-size: 0.9rem;
+	font-weight: 700;
+	transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.button:hover {
+	transform: translateY(-1px);
+}
+
+.buttonPrimary {
+	background: var(--accent);
+	color: white;
+}
+
+.buttonPrimary:hover {
+	background: var(--accent-strong);
+}
+
+.buttonOutline {
+	background: transparent;
+	color: var(--accent);
+}
+
+.buttonOutline:hover {
+	background: var(--accent);
+	color: white;
+}
+
+.buttonText {
+	min-height: 0;
+	padding: 0;
+	border-color: transparent;
+	background: transparent;
+	color: var(--accent);
+}
+
+.buttonText:hover {
+	text-decoration: underline;
+}

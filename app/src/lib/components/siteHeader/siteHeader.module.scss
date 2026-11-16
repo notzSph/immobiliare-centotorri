@@ -1,0 +1,99 @@
+.siteHeader {
+	position: relative;
+	z-index: 2;
+	border-bottom: 1px solid var(--accent);
+	background: var(--surface);
+}
+
+.headerInner {
+	display: grid;
+	min-height: 96px;
+	grid-template-columns: minmax(200px, 1fr) auto minmax(200px, 1fr);
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.brand {
+	display: inline-flex;
+	width: fit-content;
+	align-items: center;
+	gap: 0.65rem;
+	color: var(--foreground);
+}
+
+.brandLogo {
+	display: block;
+	width: 150px;
+	height: auto;
+}
+
+.primaryNav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(1.6rem, 3vw, 3rem);
+}
+
+.primaryNav a {
+	position: relative;
+	padding-block: 0.65rem;
+	font-size: 1rem;
+	font-weight: 650;
+}
+
+.primaryNav a:hover,
+.primaryNav a[aria-current='page'] {
+	color: var(--accent);
+}
+
+.primaryNav a[aria-current='page']::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	background: var(--accent);
+	content: '';
+}
+
+.headerCta {
+	justify-self: end;
+	min-height: 44px;
+	padding-inline: 1.6rem;
+}
+
+@media (max-width: 900px) {
+	.headerInner {
+		min-height: auto;
+		grid-template-columns: 1fr auto;
+		padding-block: 0.8rem;
+	}
+
+	.primaryNav {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		justify-content: space-between;
+		gap: 0.75rem;
+		padding-top: 0.5rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.brandLogo {
+		width: 122px;
+	}
+
+	.primaryNav {
+		gap: 0.5rem;
+	}
+
+	.primaryNav a {
+		font-size: 0.8rem;
+	}
+
+	.headerCta {
+		min-height: 40px;
+		padding-inline: 0.9rem;
+		font-size: 0.78rem;
+	}
+}

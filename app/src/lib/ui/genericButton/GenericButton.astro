@@ -1,0 +1,24 @@
+---
+interface Props {
+	href: string;
+	variant?: 'primary' | 'outline' | 'text';
+	class?: string;
+	ariaLabel?: string;
+}
+
+const {
+	href,
+	variant = 'primary',
+	class: className = '',
+	ariaLabel,
+} = Astro.props;
+import styles from './genericButton.module.scss';
+---
+
+<a
+	href={href}
+	class:list={[styles.button, styles[`button${variant[0].toUpperCase()}${variant.slice(1)}`], className]}
+	aria-label={ariaLabel}
+>
+	<slot />
+</a>
