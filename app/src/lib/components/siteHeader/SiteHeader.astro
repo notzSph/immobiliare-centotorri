@@ -1,0 +1,28 @@
+---
+import logo from '@/assets/centotorri-logo.svg';
+import GenericButton from '@/ui/genericButton/GenericButton.astro';
+import styles from './siteHeader.module.scss';
+
+const links = [
+	{ href: '#home', label: 'Home' },
+	{ href: '#servizi', label: 'Servizi' },
+	{ href: '#immobili', label: 'Immobili' },
+	{ href: '#contatti', label: 'Contatti' },
+];
+---
+
+<header class={styles.siteHeader}>
+	<div class={`page-wrap ${styles.headerInner}`}>
+		<a class={styles.brand} href="#home" aria-label="Immobiliare Centotorri, pagina iniziale">
+			<img class={styles.brandLogo} src={logo.src} alt="Immobiliare Centotorri" />
+		</a>
+		<nav class={styles.primaryNav} aria-label="Navigazione principale">
+			{links.map(({ href, label }, index) => (
+				<a href={href} aria-current={index === 0 ? 'page' : undefined}>{label}</a>
+			))}
+		</nav>
+		<GenericButton href="#contatti" variant="outline" class={styles.headerCta}>
+			Contattaci
+		</GenericButton>
+	</div>
+</header>
