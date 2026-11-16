@@ -1,0 +1,25 @@
+---
+import styles from './genericSection.module.scss';
+
+interface Props {
+	id?: string;
+	eyebrow?: string;
+	title: string;
+	class?: string;
+}
+
+const { id, eyebrow, title, class: className = '' } = Astro.props;
+---
+
+<section id={id} class:list={[styles.genericSection, className]} aria-labelledby={`${id ?? 'section'}-title`}>
+	<div class="page-wrap">
+		<header class={styles.sectionHeading}>
+			{eyebrow && <p class={styles.eyebrow}>{eyebrow}</p>}
+			<h2 id={`${id ?? 'section'}-title`}>{title}</h2>
+			<slot name="intro" />
+		</header>
+		<div class={styles.sectionContent}>
+			<slot />
+		</div>
+	</div>
+</section>

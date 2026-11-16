@@ -1,0 +1,96 @@
+@use "../tokens/spacing" as *;
+
+.g-1 {
+  gap: $spaceMin;
+}
+.g-2 {
+  gap: $spaceS;
+}
+.g-3 {
+  gap: $spaceM;
+}
+.g-4 {
+  gap: $spaceL;
+}
+.g-5 {
+  gap: $spaceXL;
+}
+.g-6 {
+  gap: $spaceMax;
+}
+
+.p-1 {
+  padding: $spaceMin;
+}
+.p-2 {
+  padding: $spaceS;
+}
+.p-3 {
+  padding: $spaceM;
+}
+.p-4 {
+  padding: $spaceL;
+}
+.p-5 {
+  padding: $spaceXL;
+}
+.p-6 {
+  padding: $spaceMax;
+}
+
+.py-1 {
+  padding-block: $spaceMin;
+}
+.py-2 {
+  padding-block: $spaceS;
+}
+.py-3 {
+  padding-block: $spaceM;
+}
+.py-4 {
+  padding-block: $spaceL;
+}
+.py-5 {
+  padding-block: $spaceXL;
+}
+.py-6 {
+  padding-block: $spaceMax;
+}
+
+.px-1 {
+  padding-inline: $spaceMin;
+}
+.px-2 {
+  padding-inline: $spaceS;
+}
+.px-3 {
+  padding-inline: $spaceM;
+}
+.px-4 {
+  padding-inline: $spaceL;
+}
+.px-5 {
+  padding-inline: $spaceXL;
+}
+.px-6 {
+  padding-inline: $spaceMax;
+}
+
+.mt-1 {
+  margin-top: $spaceMin;
+}
+.mt-2 {
+  margin-top: $spaceS;
+}
+.mt-3 {
+  margin-top: $spaceM;
+}
+.mt-4 {
+  margin-top: $spaceL;
+}
+.mt-5 {
+  margin-top: $spaceXL;
+}
+.mt-6 {
+  margin-top: $spaceMax;
+}

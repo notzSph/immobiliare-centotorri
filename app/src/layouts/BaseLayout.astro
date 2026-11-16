@@ -1,0 +1,48 @@
+---
+import '../lib/styles/index.scss';
+import SiteFooter from '../lib/components/siteFooter/SiteFooter.astro';
+import SiteHeader from '../lib/components/siteHeader/SiteHeader.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	canonicalPath?: string;
+	socialImage?: {
+		src: string;
+		alt: string;
+	};
+}
+
+const { title, description, canonicalPath, socialImage } = Astro.props;
+const canonicalUrl = canonicalPath && Astro.site
+	? new URL(canonicalPath, Astro.site).toString()
+	: undefined;
+---
+
+<!doctype html>
+<html lang="it">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#87171a" />
+		<meta name="description" content={description} />
+		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		{socialImage && <meta property="og:image" content={socialImage.src} />}
+		{socialImage && <meta property="og:image:alt" content={socialImage.alt} />}
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">Vai al contenuto</a>
+		<SiteHeader />
+		<main id="main-content">
+			<slot />
+		</main>
+		<SiteFooter />
+	</body>
+</html>
