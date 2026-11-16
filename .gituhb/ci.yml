@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate site and Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Type and Astro checks
+        run: npm run check --if-present
+
+      - name: Validate content
+        run: npm run validate:content --if-present
+
+      - name: Run tests
+        run: npm test --if-present
+
+      - name: Build production site
+        run: npm run build
+        env:
+          PUBLIC_SITE_URL: https://example.invalid
+
+      - name: Validate Docker Compose configuration
+        run: docker compose config --quiet
+
+      - name: Build production container
+        run: docker compose build
+

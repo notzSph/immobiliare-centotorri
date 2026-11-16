@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest a focused improvement to the website or its workflow.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What need should this address?
+      description: Describe the visitor or maintainer need.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behaviour
+      description: Explain what the site should do.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Extra context
+      description: Add relevant examples without personal data or secrets.
+    validations:
+      required: false
